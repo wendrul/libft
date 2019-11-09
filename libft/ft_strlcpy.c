@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 11:30:22 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/06 12:07:47 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/06 12:30:06 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/07 23:37:14 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
-	while (*str)
+	size_t	srclen;
+	int		n;
+
+	srclen = ft_strlen(src);
+	n = 0;
+	if (dstsize > srclen)
 	{
-		if (*str == (char)c)
-			return (str);
-		str++;
+		while (src[n])
+		{
+			dest[n] = src[n];
+			n++;
+		}
 	}
-	return (NULL);
+	else
+	{
+		while ((unsigned long)n < dstsize - 1 && dstsize > 0)
+		{
+			dest[n] = src[n];
+			n++;
+		}
+		dest[n] = '\0';
+	}
+	return (srclen);
 }
