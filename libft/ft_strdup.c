@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:17:32 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/07 23:46:50 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/10 17:25:50 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ char	*ft_strdup(const char *s)
 
 	if ((dup = (char*)malloc((ft_strlen(s) + 1) * sizeof(*dup))) == NULL)
 		return (NULL);
-	ft_strlcpy(dup, s, ft_strlen(s));
+	ft_memmove(dup, s, ft_strlen(s) + 1);
 	return (dup);
 }

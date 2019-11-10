@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 11:16:06 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/09 12:11:49 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/09 18:47:15 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char		*d;
-	const char	*s;
+	char	*d;
+	char	*s;
 
-	if (!(*dest && *src))
+	if (src == NULL && dest == NULL)
 			return (NULL);
 	d = (char*)dest;
 	s = (char*)src;

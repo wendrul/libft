@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 20:21:44 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 17:48:27 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/09 23:14:57 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/09 23:40:06 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_swap(void *data1, void *data2, size_t datasize)
 {
-	char	*str;
-	size_t	size;
+	unsigned char *s1;
+	unsigned char *s2;
 
-	if (s == NULL)
-		return ((char*)NULL);	
-	size = ft_min(len, ft_strlen(&s[start]));
-	if ((str = (char*)malloc((size + 1) * sizeof(*str))) == NULL)
-			return (NULL);
-	ft_memmove(str, &s[start], size + 1);
-	str[size] = '\0';
-	return (str);
+	s1 = (unsigned char*)data1;
+	s2 = (unsigned char*)data2;
+	while (datasize--)
+	{
+		*s1 = *s1 ^ *s2;
+		*s2 = *s1 ^ *s2;
+		*s1 = *s1 ^ *s2;
+	}
 }

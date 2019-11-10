@@ -6,20 +6,24 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 11:16:19 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/06 11:16:22 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/10 17:22:22 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	i;
-	char	*data;
+	register size_t len;
+	register unsigned char *data;
+	register unsigned char ch;
 
-	data = (char*)s;
-	i = -1;
-	while (++i < n)
-		data[i] = c;
-	return (s);
+	ch = (unsigned char)c;
+	data = (unsigned char *)s;
+	len = n;
+	while (len--)
+			*data++ = ch;
+	return (s);	
 }
+

@@ -6,7 +6,7 @@
 #    By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/07 20:31:38 by ede-thom          #+#    #+#              #
-#    Updated: 2019/11/09 12:03:05 by ede-thom         ###   ########.fr        #
+#    Updated: 2019/11/10 17:45:16 by ede-thom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,14 @@ SRCS	=	ft_memset.c\
 			ft_atoi.c\
 			ft_calloc.c\
 			ft_strdup.c\
+			ft_substr.c\
 		
 SRCS	+=	more/ft_atoi_base.c\
 			more/ft_indexof.c\
 			more/ft_iswhitespace.c\
-			more/ft_max.c
+			more/ft_max.c\
+			more/ft_min.c\
+			more/ft_swap.c\
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -54,7 +57,7 @@ CYAN	=	\033[0;36m
 RESET	=	\033[0m
 
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -I./
 
 CC	=		gcc
 
@@ -63,7 +66,7 @@ RM	=		rm -f
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@printf "$(CYAN)Done creating object files!$(RESET)\n"
+			@printf "$(CYAN)Done creating object files!\t\t$(RESET)\n"
 			@ar -crs ${NAME} ${OBJS}
 			@printf "$(CYAN)Created $(GREEN)$(NAME)$(CYAN)!! $(RESET)\n"
 
@@ -76,7 +79,7 @@ clean:
 
 fclean:		clean
 			@${RM} ${NAME}
-			@printf "$(CYAN)Everything is $(RED)c$(YELLOW)l$(GREEN)e$(CYAN)a$(MAGENTA)n$(RESET)\n"
+			@printf "$(CYAN)Everything is $(RED)c $(YELLOW)l $(GREEN)e $(CYAN)a $(MAGENTA)n $(RESET)\n"
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 19:25:26 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/07 23:47:23 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/09 21:45:02 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t j;
 
 	i = 0;
+	if (needle[0] == '\0')
+		return ((char*)haystack);
 	while (haystack[i] && i < len)
 	{
 		j = 0;
