@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 11:16:02 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/06 11:16:05 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/06 11:04:31 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/09 12:25:50 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_isalnum(int c)
 {
-	char *src1;
-	char *src2;
-
-	src1 = (unsigned char*)s1;
-	src2 = (unsigned char*)s2;
-	while (n--)
-	{
-		if (*src1 != *src2)
-			return (*src1 - *src2);
-		src1++;
-		src2++;
-	}
-	return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

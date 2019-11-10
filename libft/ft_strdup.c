@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 11:15:43 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/06 11:15:49 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/07 20:17:32 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/10 17:25:50 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	isprint(int c)
+char	*ft_strdup(const char *s)
 {
-	return (c > 31 && c != 127);
+	char *dup;
+
+	if ((dup = (char*)malloc((ft_strlen(s) + 1) * sizeof(*dup))) == NULL)
+		return (NULL);
+	ft_memmove(dup, s, ft_strlen(s) + 1);
+	return (dup);
 }

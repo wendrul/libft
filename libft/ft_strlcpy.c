@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 11:15:55 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/06 11:15:57 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/06 12:30:06 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/10 16:50:57 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
-	char	*d;
-	char	*s;
+	size_t	srclen;
+	size_t	n;
 
-	d = (char*)dest;
-	s = (char*)src;
-	while (n--)
+	if (src == NULL)
+		return (0);
+	srclen = ft_strlen(src);
+	n = -1;
+	if (dstsize == 0)
+			return (srclen);
+	if (dstsize > srclen)
 	{
-		if (*s == c)
-			return (s + 1);
-		*d++ = *s++;
+		while (src[++n])
+			dest[n] = src[n];
+		dest[n] = '\0';
 	}
-	return (NULL);
+	else
+	{
+		while (++n < dstsize - 1 && dstsize > 0)
+			dest[n] = src[n];
+		dest[n] = '\0';
+	}
+	return (srclen);
 }

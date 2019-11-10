@@ -4,3 +4,4 @@
 *.out
 tests.c
 *.o
+libft-unit-test/

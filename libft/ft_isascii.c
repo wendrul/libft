@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 11:15:59 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/06 11:16:01 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/06 11:15:36 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/07 23:30:39 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_isascii(int c)
 {
-	while (n--)
-	{
-		if (*((unsigned char*)src) == (unsigned char)c)
-			return (src);
-		src++;
-	}
-	return (NULL);
+	return (0 <= c && c <= 127);
 }
