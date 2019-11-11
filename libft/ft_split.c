@@ -6,15 +6,16 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 21:43:12 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 04:33:44 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 16:55:59 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	**ft_split(char const *s, char c)
 {
 	char blob[2];
-	
+
 	blob[0] = c;
 	blob[1] = '\0';
 	return (ft_split_charset((char*)s, blob));

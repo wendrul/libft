@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:57:40 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 21:26:23 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 16:56:55 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static int	count_set(char const *str, char const *set)
 
 char		*ft_strtrim(char const *str, char const *set)
 {
-	char *ret;
-	int	i;
-	int start;
-	int end;
+	char	*ret;
+	int		i;
+	int		start;
+	int		end;
 
 	if (str == NULL)
 		return ((char*)NULL);
@@ -54,6 +54,6 @@ char		*ft_strtrim(char const *str, char const *set)
 		ret[i] = str[start + i];
 		i++;
 	}
-	ret [i] = '\0';
+	ret[i] = '\0';
 	return (ret);
 }

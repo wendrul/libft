@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 07:32:09 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 08:01:06 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 21:24:47 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (lst == NULL || del == NULL)
 		return ;
+	if (!*lst)
+		return ;
 	cur = *lst;
 	while (cur)
 	{
-			ft_lstdelone(cur, del);
-			last = cur;
-			cur = cur->next;
-			free(last);
+		last = cur;
+		cur = cur->next;
+		ft_lstdelone(last, del);
 	}
+	*lst = NULL;
 }

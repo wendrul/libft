@@ -6,13 +6,13 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 07:22:37 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 07:27:01 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 16:53:41 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (lst == NULL)
 		return ;

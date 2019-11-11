@@ -6,7 +6,7 @@
 #    By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/07 20:31:38 by ede-thom          #+#    #+#              #
-#    Updated: 2019/11/11 07:52:16 by ede-thom         ###   ########.fr        #
+#    Updated: 2019/11/11 21:05:42 by ede-thom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,17 @@ SRCS	=	ft_memset.c\
 			ft_putstr_fd.c\
 			ft_putendl_fd.c\
 			ft_putnbr_fd.c\
-			ft_strmapi.c\
-			ft_lstadd_front.c\
+			ft_strmapi.c
+			
+SRCS	+=	ft_atoi_base.c\
+			ft_indexof.c\
+			ft_iswhitespace.c\
+			ft_max.c\
+			ft_min.c\
+			ft_swap.c\
+			ft_pow.c
+
+BONUS	=	ft_lstadd_front.c\
 			ft_lstadd_back.c\
 			ft_lstnew.c\
 			ft_lstsize.c\
@@ -53,26 +62,13 @@ SRCS	=	ft_memset.c\
 			ft_lstiter.c\
 			ft_lstdelone.c\
 			ft_lstclear.c\
-		
-#SRCS	+=	more/ft_atoi_base.c\
-			more/ft_indexof.c\
-			more/ft_iswhitespace.c\
-			more/ft_max.c\
-			more/ft_min.c\
-			more/ft_swap.c\
-
-SRCS	+=	ft_atoi_base.c\
-			ft_indexof.c\
-			ft_iswhitespace.c\
-			ft_max.c\
-			ft_min.c\
-			ft_swap.c\
-			ft_pow.c\
+			ft_lstmap.c	
 
 OBJS	=	${SRCS:.c=.o}
 
-NAME	=	libft.a
+BOBJS	=	${BONUS:.c=.o}
 
+NAME	=	libft.a
 
 RED		=	\033[0;31m
 GREEN	= 	\033[0;32m
@@ -82,30 +78,37 @@ MAGENTA	=	\033[0;35m
 CYAN	=	\033[0;36m
 RESET	=	\033[0m
 
-
 CFLAGS	=	-Wall -Wextra -Werror -I./
 
-CC	=		gcc
+CC		=	gcc
 
-RM	=		rm -f
+RM		=	rm -f
+
+
 
 all:		${NAME}
 
-$(NAME):	${OBJS}
-			@printf "$(CYAN)Done creating object files!\t\t$(RESET)\n"
-			@ar -crs ${NAME} ${OBJS}
-			@printf "$(CYAN)Created $(GREEN)$(NAME)$(CYAN)!! $(RESET)\n"
+$(NAME):	${OBJS} ${BOBJS}
+			@echo "$(CYAN)Done creating object files!            $(RESET)"
+			@ar -crs ${NAME} ${OBJS} ${BOBJS}
+			@echo "$(CYAN)Created $(GREEN)$(NAME)$(CYAN)!! $(RESET)"
 
 %.o:		%.c libft.h
 			@${CC} ${CFLAGS} -c $< -o $@
 			@printf "$(CYAN)Compiling $(MAGENTA)$<$(RESET)\r"
 clean: 
 			@${RM} ${OBJS}
-			@printf "$(CYAN)TIDY UP $(RED)MOTHERFUCKER$(RESET)\n"
+			@${RM} ${BOBJS}
+			@echo "$(CYAN)TIDY UP $(RED)pls$(RESET)"
+
+bonus:		${OBJS} ${BOBJS}
+			@echo "$(CYAN)DID SOME1 ORDER A $(YELLOW) BONUS $(CYAN)???$(RESET)"
+			@ar -crs $(NAME) $(OBJS)
+			@echo "$(CYAN)Sucesfully created $(YELLOW)bonus $(GREEN)$(NAME)$(RESET)"
 
 fclean:		clean
 			@${RM} ${NAME}
-			@printf "$(CYAN)Everything is $(RED)c $(YELLOW)l $(GREEN)e $(CYAN)a $(MAGENTA)n $(RESET)\n"
+			@echo "$(CYAN)Everything is $(RED)c $(YELLOW)l $(GREEN)e $(CYAN)a $(MAGENTA)n $(RESET)"
 
 re:			fclean all
 

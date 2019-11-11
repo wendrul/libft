@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 05:24:32 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 17:56:15 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/11 20:44:16 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/11 21:26:30 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*start;
+	t_list	*cur;
 	t_list	*new;
+	int		start_flag;
 
-	if (!(new = (t_list*)malloc(sizeof(*new))))
+	if (!lst)
 		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	start_flag = 1;
+	cur = lst;
+	while (cur)
+	{
+		if (!(new = (t_list*)malloc(sizeof(t_list))))
+			return (NULL);
+		if (start_flag)
+		{
+			start = new;
+			start_flag = 0;
+		}
+		else
+			ft_lstadd_back(&start, new);
+		new->content = (f)(cur->content);
+		cur = cur->next;
+	}
+	ft_lstclear(&lst, del);
+	return (start);
 }

@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 21:11:29 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 04:33:27 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 17:14:04 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ static int		word_length(char *start, char *charset)
 	return (i);
 }
 
-static char	**init(int *word, int *i, char *s, char *cs)
+static char		**init(int *word, int *i, char *s, char *cs)
 {
 	char **splut;
 
+	if (s == NULL || cs == NULL)
+		return ((char**)NULL);
 	*word = -1;
 	*i = 0;
 	if (!(splut = (char**)malloc(sizeof(char*) * (word_count(s, cs) + 1))))
@@ -57,7 +59,7 @@ static char	**init(int *word, int *i, char *s, char *cs)
 	return (splut);
 }
 
-char	**ft_split_charset(char *str, char *charset)
+char			**ft_split_charset(char *str, char *charset)
 {
 	int		i;
 	int		word;
@@ -65,8 +67,6 @@ char	**ft_split_charset(char *str, char *charset)
 	char	**splut;
 	int		j;
 
-	if (str == NULL || charset == NULL)
-		return ((char**)NULL);
 	if (!(splut = init(&word, &i, str, charset)))
 		return (NULL);
 	while (++word < word_count(str, charset))
@@ -74,11 +74,10 @@ char	**ft_split_charset(char *str, char *charset)
 		while (ft_indexof(str[i], charset) != -1)
 			i++;
 		len = word_length(&str[i], charset);
-		if (len >= 0)
+		if ((j = -1) && len >= 0)
 		{
-			if(!(splut[word] = (char*)malloc(sizeof(char) * (len + 1))))
+			if (!(splut[word] = (char*)malloc(sizeof(char) * (len + 1))))
 				return (NULL);
-			j = -1;
 			while (++j < len)
 				splut[word][j] = str[i + j];
 			splut[word][j] = '\0';

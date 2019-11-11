@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 18:51:22 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 07:56:04 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 20:26:02 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include <string.h>
 
-typedef struct	s_list
+typedef struct		s_list
 {
-	void		*content;
-	struct		s_list *next;
-}				t_list;
+	void			*content;
+	struct			s_list *next;
+}					t_list;
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -46,6 +46,14 @@ int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s);
 
+char	**ft_split_charset(char *s, char *set);
+int		ft_atoi_base(const char *nptr, const char *base);
+int		ft_indexof(char needle, const char *hay);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
+int		ft_iswhitespace(char c);
+long	ft_pow(int nb, int pow);
+
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -66,13 +74,6 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
-
-char	**ft_split_charset(char *s, char *set);
-int		ft_atoi_base(const char *nptr, const char *base);
-int		ft_indexof(char needle, const char *hay);
-int		ft_max(int a, int b);
-int		ft_min(int a, int b);
-int		ft_iswhitespace(char c);
-long	ft_pow(int nb, int pow);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

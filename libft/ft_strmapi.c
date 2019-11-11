@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 03:16:32 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 05:12:32 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 17:14:39 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
-	char *ret;
+	int		i;
+	char	*ret;
 
 	if (s == NULL || f == NULL)
 		return ((char*)NULL);
