@@ -5,3 +5,4 @@
 tests.c
 *.o
 libft-unit-test/
+libft-war-machine-v2019/
