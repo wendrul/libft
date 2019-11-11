@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:10:30 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 17:10:58 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/10 19:11:55 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ret;
 
 	if ((ret = malloc(count * size)) == NULL)
-			return (NULL);
+		return (NULL);
 	ft_bzero(ret, count * size);
 	return (ret);
 }

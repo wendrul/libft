@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 12:30:06 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 16:50:57 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 02:56:22 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 	srclen = ft_strlen(src);
 	n = -1;
 	if (dstsize == 0)
-			return (srclen);
+		return (srclen);
 	if (dstsize > srclen)
 	{
 		while (src[++n])

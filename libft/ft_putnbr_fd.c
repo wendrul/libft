@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 17:43:55 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 17:44:45 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/11 02:05:48 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/11 03:15:02 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_min(int a,int b)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	if (a > b)
-			return (b);
-	return (a);
+	unsigned int n;
+
+	if (nb >= 0)
+		n = nb;
+	else
+	{
+		n = -nb;
+		ft_putchar_fd('-', fd);
+	}
+	if (n < 10)
+		ft_putchar_fd('0' + n, fd);
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(48 + n % 10, fd);
+	}
 }

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 19:00:20 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 19:15:56 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/11 01:49:28 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/11 03:14:19 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-size_t	ft_strlen(char const *str)
+void	ft_putchar_fd(int c, int fd)
 {
-	register char *cur;
-
-	cur = (char *)str;
-	while (*cur)
-		cur++;
-	return (cur - str);
+		write(fd, &c, 1);
 }

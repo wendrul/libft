@@ -6,7 +6,7 @@
 #    By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/07 20:31:38 by ede-thom          #+#    #+#              #
-#    Updated: 2019/11/10 17:45:16 by ede-thom         ###   ########.fr        #
+#    Updated: 2019/11/11 07:52:16 by ede-thom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,13 +35,39 @@ SRCS	=	ft_memset.c\
 			ft_calloc.c\
 			ft_strdup.c\
 			ft_substr.c\
+			ft_strtrim.c\
+			ft_strjoin.c\
+			ft_split.c\
+			ft_split_charset.c\
+			ft_itoa.c\
+			ft_putchar_fd.c\
+			ft_putstr_fd.c\
+			ft_putendl_fd.c\
+			ft_putnbr_fd.c\
+			ft_strmapi.c\
+			ft_lstadd_front.c\
+			ft_lstadd_back.c\
+			ft_lstnew.c\
+			ft_lstsize.c\
+			ft_lstlast.c\
+			ft_lstiter.c\
+			ft_lstdelone.c\
+			ft_lstclear.c\
 		
-SRCS	+=	more/ft_atoi_base.c\
+#SRCS	+=	more/ft_atoi_base.c\
 			more/ft_indexof.c\
 			more/ft_iswhitespace.c\
 			more/ft_max.c\
 			more/ft_min.c\
 			more/ft_swap.c\
+
+SRCS	+=	ft_atoi_base.c\
+			ft_indexof.c\
+			ft_iswhitespace.c\
+			ft_max.c\
+			ft_min.c\
+			ft_swap.c\
+			ft_pow.c\
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -65,7 +91,7 @@ RM	=		rm -f
 
 all:		${NAME}
 
-${NAME}:	${OBJS}
+$(NAME):	${OBJS}
 			@printf "$(CYAN)Done creating object files!\t\t$(RESET)\n"
 			@ar -crs ${NAME} ${OBJS}
 			@printf "$(CYAN)Created $(GREEN)$(NAME)$(CYAN)!! $(RESET)\n"
@@ -84,6 +110,6 @@ fclean:		clean
 re:			fclean all
 
 test:		all
-			${CC} tests.c -L libft.a
+			${CC} tests.c -L./ -lft
 
 .PHONY:	all clean fclean test re

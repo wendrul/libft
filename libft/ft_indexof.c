@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_indexof.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 19:00:20 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 19:15:56 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/07 19:51:09 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/10 19:30:51 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *str)
+int	ft_indexof(char needle, const char *hay)
 {
-	register char *cur;
+	int i;
 
-	cur = (char *)str;
-	while (*cur)
-		cur++;
-	return (cur - str);
+	i = -1;
+	while (hay[++i])
+		if (hay[i] == needle)
+			return (i);
+	return (-1);
 }

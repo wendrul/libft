@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 19:00:20 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 19:15:56 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/11 05:24:32 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/11 06:03:23 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strlen(char const *str)
+t_list	*ft_lstnew(void *content)
 {
-	register char *cur;
+	t_list	*new;
 
-	cur = (char *)str;
-	while (*cur)
-		cur++;
-	return (cur - str);
+	if (!(new = (t_list*)malloc(sizeof(*new))))
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

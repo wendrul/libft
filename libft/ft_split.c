@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 19:00:20 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/10 19:15:56 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/10 21:43:12 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/11 04:33:44 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(char const *str)
+char	**ft_split(char const *s, char c)
 {
-	register char *cur;
-
-	cur = (char *)str;
-	while (*cur)
-		cur++;
-	return (cur - str);
+	char blob[2];
+	
+	blob[0] = c;
+	blob[1] = '\0';
+	return (ft_split_charset((char*)s, blob));
 }

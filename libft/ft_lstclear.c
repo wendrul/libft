@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_indexof.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 19:51:09 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/07 19:51:10 by ede-thom         ###   ########.fr       */
+/*   Created: 2019/11/11 07:32:09 by ede-thom          #+#    #+#             */
+/*   Updated: 2019/11/11 08:01:06 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_indexof(char needle, const char *hay)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int i;
+	t_list *cur;
+	t_list *last;
 
-	i = 0;
-	while (hay[i])
+	if (lst == NULL || del == NULL)
+		return ;
+	cur = *lst;
+	while (cur)
 	{
-		if (hay[i] == needle)
-			return (i);
-		i++;
+			ft_lstdelone(cur, del);
+			last = cur;
+			cur = cur->next;
+			free(last);
 	}
-	return (-1);
 }
