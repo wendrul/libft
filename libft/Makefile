@@ -6,7 +6,7 @@
 #    By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/07 20:31:38 by ede-thom          #+#    #+#              #
-#    Updated: 2019/11/11 21:05:42 by ede-thom         ###   ########.fr        #
+#    Updated: 2019/11/14 22:27:21 by ede-thom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,7 +103,7 @@ clean:
 
 bonus:		${OBJS} ${BOBJS}
 			@echo "$(CYAN)DID SOME1 ORDER A $(YELLOW) BONUS $(CYAN)???$(RESET)"
-			@ar -crs $(NAME) $(OBJS)
+			@ar -crs $(NAME) $(OBJS) $(BOBJS)
 			@echo "$(CYAN)Sucesfully created $(YELLOW)bonus $(GREEN)$(NAME)$(RESET)"
 
 fclean:		clean

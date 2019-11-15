@@ -6,13 +6,12 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:57:40 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 16:56:55 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/11 22:02:10 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static int	count_set(char const *str, char const *set)
 {

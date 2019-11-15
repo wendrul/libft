@@ -6,7 +6,7 @@
 /*   By: ede-thom <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:21:44 by ede-thom          #+#    #+#             */
-/*   Updated: 2019/11/11 04:33:17 by ede-thom         ###   ########.fr       */
+/*   Updated: 2019/11/14 18:06:47 by ede-thom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return ((char*)NULL);
-	if (start < ft_strlen(s))
-		size = ft_min(len, ft_strlen(s) - start);
-	else
-		size = len;
-	if ((str = (char*)malloc((size + 1) * sizeof(*str))) == NULL)
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	size = ft_min(len, ft_strlen(s) - start);
+	if ((str = (char*)malloc((len + 1) * sizeof(*str))) == NULL)
 		return (NULL);
 	ft_memcpy(str, &s[start], size + 1);
 	str[size] = '\0';
